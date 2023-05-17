@@ -1,0 +1,92 @@
+#include "main.h"
+
+/**
+ * _memcpy - Copies files between void pointers
+ * @newptr: Destination pointer
+ * @ptr: Sources pointer
+ * @size: New pointer size
+ *
+ * Return: no return
+ */
+void _memcpy(void *newptr, const void *ptr, unsigned int size)
+{
+	char *char_ptr = (char *)ptr;
+	char *char_newptr = (char *)newptr;
+	unsigned int a;
+
+	for (a = 0; a < size; a++)
+
+		char_newptr[a] = char_ptr[a];
+}
+/**
+ * _realloc - reallocates a memory block
+ * @ptr: Allocated memory pointer
+ * @old_size: Allocated space pointer in bytes sizes
+ * @new_size: New memory block in bytes sizes
+ *
+ * Return: pointer
+ * if new_size == old_size, returns pointer without any changes
+ * if malloc fails, returns NULL
+ */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	void *newptr;
+
+	if (ptr == NULL)
+		return (malloc(new_size));
+
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+
+	if (new_size == old_size)
+		return (ptr);
+
+	newptr = malloc(new_size);
+	if (newptr == NULL)
+		return (NULL);
+
+	if (new_size < old_size)
+		_memcpy(newptr, ptr, new_size);
+	else
+		_memcpy(newptr, ptr, old_size);
+
+	free(ptr);
+	return (newptr);
+}
+
+/**
+ * _reallocdp - functions reallocates memory block of a double pointer
+ * @ptr: Allocated memory double pointer
+ * @old_size: Allocated space pointer in bytes sizes
+ * @new_size: New memory block in bytes sizes
+ *
+ * Return: Pointer
+ * if new_size == old_size, returns pointer without  any changes
+ * if malloc fails, returns NULL
+ */
+char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
+{
+	char **newptr;
+	unsigned int i;
+
+	if (ptr == NULL)
+		return (malloc(sizeof(char *) * new_size));
+
+	if (new_size == old_size)
+		return (ptr);
+
+	newptr = malloc(sizeof(char *) * new_size);
+	if (newptr == NULL)
+		return (NULL);
+
+	for (i = 0; i < old_size; i++)
+		newptr[i] = ptr[i];
+
+	free(ptr);
+
+	return (newptr);
+}
+
