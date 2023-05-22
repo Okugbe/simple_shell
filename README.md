@@ -248,12 +248,11 @@ Example:
 ```
 $ ./hsh
 $ alias show=ls
-$ show
-AUTHORS            builtins_help_2.c  errors.c         linkedlist.c        shell.h       test
-README.md          env_builtins.c     getline.c        locate.c            hsh
-alias_builtins.c   environ.c          helper.c         main.c              split.c
-builtin.c          err_msgs1.c        helpers_2.c      man_1_simple_shell  str_funcs1.c
-builtins_help_1.c  err_msgs2.c        input_helpers.c  proc_file_comm.c    str_funcs2.c
+2-helps.c       error_handling.c       getting_helps.c      loop_hsh.c      read_line.c     shell_execmd.c  string-3.c
+2-lists.c       error_msg1.c           handling_cd_shell.c  main.c          README.md       split.c         string.c
+AUTHOR          error_msg2.c           help.c               main.h          running_line.c  start_prompt.c  var_checker.c
+change_dir.c    _exitsh.c              hsh                  memory.c        shell_env2.c    stdlib_funct.c
+check_syntax.c  get_builtin_command.c  lists.c              read_command.c  shell_env.c     string-2.c
 ```
 
 #### exit
