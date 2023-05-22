@@ -103,7 +103,7 @@ void free_line_list(line_list **head);
 r_var *add_rvar_node(r_var **head, int lvar, char *var, int lval);
 void free_rvar_list(r_var **head);
 
-/* aux_str functions */
+/* string functions */
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
@@ -115,14 +115,14 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
 
-/* aux_str2.c */
+/* string-3.c */
 char *_strdup(const char *s);
 int _strlen(const char *s);
 int cmp_chars(char str[], const char *delim);
 char *_strtok(char str[], const char *delim);
 int _isdigit(const char *s);
 
-/* aux_str3.c */
+/* string-2.c */
 void rev_string(char *s);
 
 /* check_syntax_error.c */
@@ -136,7 +136,7 @@ int check_syntax_error(data_shell *datash, char *input);
 char *without_comment(char *in);
 void shell_loop(data_shell *shelldata);
 
-/* read_line.c */
+/* read_command.c */
 char *read_line(int *i_eof);
 
 /* split.c */
@@ -152,7 +152,7 @@ int check_vars(r_var **h, char *in, char *st, data_shell *data);
 char *replaced_input(r_var **head, char *input, char *new_input, int nlen);
 char *rep_var(char *input, data_shell *datash);
 
-/* get_line.c */
+/* read_line.c */
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 
@@ -196,13 +196,13 @@ int get_len(int n);
 char *aux_itoa(int n);
 int _atoi(char *s);
 
-/* error_msg1.c */
+/* aux_error1.c */
 char *strcat_cd(data_shell *, char *, char *, char *);
 char *error_get_cd(data_shell *shelldata);
 char *error_not_found(data_shell *shelldata);
 char *error_exit_shell(data_shell *shelldata);
 
-/* error_msg2.c */
+/* aux_error2.c */
 char *error_get_alias(char **args);
 char *error_env(data_shell *shelldata);
 char *error_syntax(char **args);
@@ -210,10 +210,10 @@ char *error_permission(char **args);
 char *error_path_126(data_shell *shelldata);
 
 
-/* error_handling.c */
+/* get_error.c */
 int get_error(data_shell *shelldata, int eval);
 
-/* start_prompt.c */
+/* get_sigint.c */
 void get_sigint(int sig);
 
 /* aux_help.c */
